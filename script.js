@@ -76,12 +76,32 @@ document.addEventListener('DOMContentLoaded', () => {
     'Other',
   ];
   const typeGrid = document.getElementById('project-type-grid');
+  // Mapping of project types to icon filenames for display in the wizard
+  const projectIcons = {
+    'DeFi': 'defi.png',
+    'Memecoin': 'meme.png',
+    'GameFi': 'game.png',
+    'NFT': 'nft.png',
+    'SocialFi': 'social.png',
+    'RWA': 'rwa.png',
+    'Infrastructure (L1, L2, tools)': 'infra.png',
+    'AI x Web3': 'ai.png',
+    'Gambling & Casino': 'gamble.png',
+    'Other': 'other.png'
+  };
   const step1Next = document.querySelector('#step-1 .next');
   projectTypes.forEach((type) => {
     const card = document.createElement('div');
     card.className = 'card';
     card.tabIndex = 0;
-    card.textContent = type;
+    // Append an image and a label instead of plain text for the project type
+    const img = document.createElement('img');
+    img.src = projectIcons[type] || '';
+    img.alt = `${type} icon`;
+    card.appendChild(img);
+    const span = document.createElement('span');
+    span.textContent = type;
+    card.appendChild(span);
     card.addEventListener('click', () => {
       state.projectType = type;
       // toggle selection UI
@@ -142,13 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function updatePrepHints(days) {
     let hint = '';
     if (days <= 3) {
-      hint = '0-3 days: only fast deliverables such as press releases and quick influencer shoutouts.';
+      hint = '0–3 days: only fast deliverables such as press releases and quick influencer shoutouts.';
     } else if (days <= 6) {
-      hint = '4-6 days: add AMA sessions, short content pieces and basic KOL involvement.';
+      hint = '4–6 days: add AMA sessions, short content pieces and basic KOL involvement.';
     } else if (days <= 13) {
-      hint = '7-13 days: full KOL programs, partnerships and native media articles become feasible.';
+      hint = '7–13 days: full KOL programs, partnerships and native media articles become feasible.';
     } else {
-      hint = '14-30 days: long‑lead media, comprehensive content and large partnerships are possible.';
+      hint = '14–30 days: long‑lead media, comprehensive content and large partnerships are possible.';
     }
     prepHintsContainer.textContent = hint;
   }
@@ -187,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const step4Back = document.querySelector('#step-4 .back');
 
   function calculateFee(budget) {
-    // Fee tiers: 1-5k:30%, 5-10k:25%, 10-25k:20%, 25-50k:18%, 50-100k:15%, 100k+:10%
+    // Fee tiers: 1–5k:30%, 5–10k:25%, 10–25k:20%, 25–50k:18%, 50–100k:15%, 100k+:10%
     let percent;
     if (budget <= 5000) percent = 0.3;
     else if (budget <= 10000) percent = 0.25;
