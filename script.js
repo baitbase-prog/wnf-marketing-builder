@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'NFT': 'nft.png',
     'SocialFi': 'social.png',
     'RWA': 'rwa.png',
-    'Infrastructure (L1, L2, tools)': 'infra.png',
+    'Infrastructure': 'infra.png',
     'AI x Web3': 'ai.png',
     'Gambling & Casino': 'gamble.png',
     'Other': 'other.png'

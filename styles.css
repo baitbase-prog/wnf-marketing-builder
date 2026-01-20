@@ -175,6 +175,19 @@ main {
   background: var(--surface);
 }
 
+/* Image and label inside card */
+.card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+.card span {
+  display: block;
+}
+
 /* Stage options */
 .stage-options {
   display: flex;
@@ -187,20 +200,6 @@ main {
   padding: 0.6rem 1rem;
   background: var(--surface-light);
   border: 1px solid #2c3261;
-  
-  
-/* Card image and label styling */
-.card img {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 0.5rem;
-}
-
-.card span {
-  display: block;
-}
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: background var(--transition-speed);
